@@ -105,4 +105,4 @@ theme: butterfly
 deploy:
   type: git
   repo: https://github.com/wangleihuha/wangleihuha.github.io.git
-  branch: master
+  branch: main
