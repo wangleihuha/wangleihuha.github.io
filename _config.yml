@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
-keywords:
-author: John Doe
+title: Front-end
+subtitle: 'Developer'
+description: 'Be curious'
+keywords: 'front-end'
+author: Lei Wang
 language: zh-CN
 timezone: ''
 
