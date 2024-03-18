@@ -1,0 +1,214 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Front-end | Front-end</title><meta name="author" content="Lei Wang"><meta name="copyright" content="Lei Wang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="JS手写类面试题该类面试题的关键点在于首先要想清楚要实现的函数的输入、输出与作用。 一、手写map、filter、reduce map map 方法用于将数组中的每个元素按照指定规则映射&#x2F;转换成另一个元素，返回转换后的新数组。 12345678910&#x2F;&#x2F; 输入一个回调函数，输出修改后的新数组（原数组不变）Array.prototype.myMap &#x3D; function (callback">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Front-end">
+<meta property="og:url" content="http://example.com/2024/03/18/%E6%89%8B%E5%86%99%E7%B1%BB%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
+<meta property="og:site_name" content="Front-end">
+<meta property="og:description" content="JS手写类面试题该类面试题的关键点在于首先要想清楚要实现的函数的输入、输出与作用。 一、手写map、filter、reduce map map 方法用于将数组中的每个元素按照指定规则映射&#x2F;转换成另一个元素，返回转换后的新数组。 12345678910&#x2F;&#x2F; 输入一个回调函数，输出修改后的新数组（原数组不变）Array.prototype.myMap &#x3D; function (callback">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/avatar.jpg">
+<meta property="article:published_time" content="2024-03-18T14:18:03.020Z">
+<meta property="article:modified_time" content="2024-01-12T08:33:25.457Z">
+<meta property="article:author" content="Lei Wang">
+<meta property="article:tag" content="front-end">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/avatar.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/03/18/%E6%89%8B%E5%86%99%E7%B1%BB%E9%9D%A2%E8%AF%95%E9%A2%98/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Front-end',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-12 16:33:25'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Front-end"><span class="site-name">Front-end</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">无题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-18T14:18:03.020Z" title="发表于 2024-03-18 22:18:03">2024-03-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-01-12T08:33:25.457Z" title="更新于 2024-01-12 16:33:25">2024-01-12</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="JS手写类面试题"><a href="#JS手写类面试题" class="headerlink" title="JS手写类面试题"></a>JS手写类面试题</h1><p>该类面试题的关键点在于首先要想清楚要实现的函数的输入、输出与作用。</p>
+<h3 id="一、手写map、filter、reduce"><a href="#一、手写map、filter、reduce" class="headerlink" title="一、手写map、filter、reduce"></a>一、手写map、filter、reduce</h3><ol>
+<li><p>map</p>
+<p>map 方法用于将数组中的每个元素按照指定规则映射&#x2F;转换成另一个元素，返回转换后的新数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 输入一个回调函数，输出修改后的新数组（原数组不变）</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">myMap</span> = <span class="keyword">function</span> (<span class="params">callback</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> res = []</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="variable language_">this</span>.<span class="property">length</span>; i++) &#123;</span><br><span class="line">        res.<span class="title function_">push</span>(<span class="title function_">callback</span>(<span class="variable language_">this</span>[i], i, <span class="variable language_">this</span>))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].<span class="title function_">myMap</span>(<span class="function"><span class="params">item</span> =&gt;</span> item * <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<p>关键点：</p>
+<ul>
+<li><strong>this指向</strong>很重要，看如何获取这个数组、及每一项的值</li>
+<li>数组如何修改不重要，如何修改都在callback里定义了，此处我们直接把callback想要的形参传给他就可以了~</li>
+</ul>
+</li>
+<li><p>filter</p>
+<p>filter 方法用于筛选出数组中满足指定条件的元素，返回这些满足条件的元素构成的新数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 输入一个回调函数，输出过滤后的新数组</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">myFilter</span> = <span class="keyword">function</span> (<span class="params">callback</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> res = []</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="variable language_">this</span>.<span class="property">length</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">const</span> isSuccess = <span class="title function_">callback</span>(<span class="variable language_">this</span>[i], i, <span class="variable language_">this</span>)</span><br><span class="line">        isSuccess &amp;&amp; res.<span class="title function_">push</span>(<span class="variable language_">this</span>[i])</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].<span class="title function_">myFilter</span>(<span class="function"><span class="params">item</span> =&gt;</span> item === <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>reduce</p>
+<p>reduce 方法的作用是对数组中的元素逐个执行回调函数，将回调函数的结果汇总为单个值，输出所有回调函数的结果与初始值的总和。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 输入一个回调函数，一个初始值，输出回调函数的结果与初始值的累加值</span></span><br><span class="line"><span class="comment">// 回调函数输入初始值或上一次调用callback的结果、当前元素的值、当前索引值、数组本身，输出单个值</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">myReduce</span> = <span class="keyword">function</span> (<span class="params">callback, initialValue = <span class="number">0</span></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> res = initialValue</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>;i &lt; <span class="variable language_">this</span>.<span class="property">length</span>; i++) &#123;</span><br><span class="line">        res = <span class="title function_">callback</span>(res, <span class="variable language_">this</span>[i], i, <span class="variable language_">this</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].<span class="title function_">myReduce</span>(</span><br><span class="line">  <span class="function">(<span class="params">accumulator, currentValue</span>) =&gt;</span> accumulator + currentValue,</span><br><span class="line">  <span class="number">2</span>,</span><br><span class="line">) <span class="comment">// 8</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="手写call、apply、bind"><a href="#手写call、apply、bind" class="headerlink" title="手写call、apply、bind"></a>手写call、apply、bind</h3><p>call、apply 和 bind 是 JavaScript 中用于改变函数执行上下文（this 指向）的方法。</p>
+<p>实现这几个方法的关键点在于如何改变函数的this指向，我们首先回忆一下this指向相关知识点，this指向大致可以分为三种：</p>
+<ul>
+<li><p>第一种是函数调用模式，当一个函数不是一个对象的属性时，直接作为函数来调用时，this 指向全局对象。</p>
+</li>
+<li><p>第二种是方法调用模式，<strong>如果一个函数作为一个对象的方法来调用时，this 指向这个对象</strong>。</p>
+</li>
+<li><p>第三种是构造器调用模式，如果一个函数用 new 调用时，函数执行前会新创建一个对象，this 指向这个新创建的对象。</p>
+</li>
+</ul>
+<p>那这里我们可以借助第二种来实现，将这个函数作为传入的对象的属性，那它的this必然指向它啦~</p>
+<ol>
+<li><p>call</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 输入想要替换this的对象、要绑定到新函数的参数1、参数2、...、参数n，输出该函数修改this后输出的值</span></span><br><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">myCall</span> = <span class="keyword">function</span> (<span class="params">context = <span class="variable language_">window</span>, ...args</span>) &#123;</span><br><span class="line">    <span class="comment">// 将这个函数作为传入的对象的属性</span></span><br><span class="line">    <span class="keyword">const</span> fn = <span class="title class_">Symbol</span>(<span class="string">&#x27;fn&#x27;</span>)</span><br><span class="line">    context[fn] = <span class="variable language_">this</span>;</span><br><span class="line">    <span class="comment">// 执行函数</span></span><br><span class="line">    <span class="keyword">const</span> res = context[fn](...args)</span><br><span class="line">    <span class="comment">// 删除该属性</span></span><br><span class="line">    <span class="keyword">delete</span> context[fn]</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>apply</p>
+<p>与 call 不同的是，call 是一个个传递参数，apply 则是通过数组传递参数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 输入想要替换this的对象、要绑定到新函数的参数数组，输出该函数修改this后输出的值</span></span><br><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">myApply</span> = <span class="keyword">function</span> (<span class="params">context = <span class="variable language_">window</span>, args</span>) &#123;</span><br><span class="line">    <span class="comment">// 将这个函数作为传入的对象的属性</span></span><br><span class="line">    <span class="keyword">const</span> fn = <span class="title class_">Symbol</span>(<span class="string">&#x27;fn&#x27;</span>)</span><br><span class="line">    context[fn] = <span class="variable language_">this</span>;</span><br><span class="line">    <span class="comment">// 执行函数</span></span><br><span class="line">    <span class="keyword">const</span> res = context[fn](...args)</span><br><span class="line">    <span class="comment">// 删除该属性</span></span><br><span class="line">    <span class="keyword">delete</span> context[fn]</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>bind</p>
+<p>bind 方法用于创建一个新的函数，并将指定的 this 值绑定到新函数上。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 输入想要替换this的对象、要绑定到新函数的参数1、参数2、...、参数n，输出一个已经绑定了新的this值的新函数</span></span><br><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">myBind</span> = <span class="keyword">function</span> (<span class="params">context = <span class="variable language_">window</span>, ...args</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">(<span class="params">...innerArgs</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> allArgs = args.<span class="title function_">concat</span>(innerArgs);</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">apply</span>(context, allArgs)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>bind()最简单的用法是创建一个函数，使</p>
+<p>这个函数不论怎么调用都有同样的this值。有时我们将方法从对象中拿出来再调用，这时this值就被改变了，使用bind()方法能够很漂亮地解决这个问题。</p>
+</li>
+</ol>
+<p>当你希望改变上下文环境之后并非立即执行，而是回调执行的时候，使用bind方法，而call、apply则会立即执行函数。</p>
+<h3 id="三、手写防抖、节流"><a href="#三、手写防抖、节流" class="headerlink" title="三、手写防抖、节流"></a>三、手写防抖、节流</h3><ol>
+<li><p>防抖</p>
+<p>防抖的基本思想是，在事件频繁触发的情况下，只有当事件停止触发一段时间后，才执行对应的处理函数。在这段时间内，如果事件再次触发，则重新计时。这样可以防止函数频繁执行。</p>
+<p>例子：假设监听用户输入搜索框的输入事件，当用户输入结束后1000毫秒才触发搜索请求。</p>
+</li>
+<li><p>节流</p>
+<p>节流的基本思想是，一段时间内只允许函数执行一次。在连续触发事件时，即使持续触发，也会在规定的时间间隔内执行一次函数。</p>
+<p>例子：假设监听页面滚动事件，每500毫秒执行一次处理函数。</p>
+</li>
+</ol>
+<h3 id="四、手写深拷贝"><a href="#四、手写深拷贝" class="headerlink" title="四、手写深拷贝"></a>四、手写深拷贝</h3><h3 id="五、手写Promise"><a href="#五、手写Promise" class="headerlink" title="五、手写Promise"></a>五、手写Promise</h3><h3 id="六、实现一个简单的事件订阅-发布（Event-Emitter）模式"><a href="#六、实现一个简单的事件订阅-发布（Event-Emitter）模式" class="headerlink" title="六、实现一个简单的事件订阅&#x2F;发布（Event Emitter）模式"></a>六、实现一个简单的事件订阅&#x2F;发布（Event Emitter）模式</h3><h3 id="七、实现一个简单的单例模式"><a href="#七、实现一个简单的单例模式" class="headerlink" title="七、实现一个简单的单例模式"></a>七、实现一个简单的单例模式</h3><h3 id="八、实现一个发布-订阅模式（Pub-Sub）"><a href="#八、实现一个发布-订阅模式（Pub-Sub）" class="headerlink" title="八、实现一个发布&#x2F;订阅模式（Pub&#x2F;Sub）"></a>八、实现一个发布&#x2F;订阅模式（Pub&#x2F;Sub）</h3></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Lei Wang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/03/18/%E6%89%8B%E5%86%99%E7%B1%BB%E9%9D%A2%E8%AF%95%E9%A2%98/">http://example.com/2024/03/18/%E6%89%8B%E5%86%99%E7%B1%BB%E9%9D%A2%E8%AF%95%E9%A2%98/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Front-end</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/03/18/webpack/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/2024/03/18/Vue%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Lei Wang</div><div class="author-info__description">Be curious</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JS%E6%89%8B%E5%86%99%E7%B1%BB%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">JS手写类面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%89%8B%E5%86%99map%E3%80%81filter%E3%80%81reduce"><span class="toc-number">1.0.1.</span> <span class="toc-text">一、手写map、filter、reduce</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%8B%E5%86%99call%E3%80%81apply%E3%80%81bind"><span class="toc-number">1.0.2.</span> <span class="toc-text">手写call、apply、bind</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%89%8B%E5%86%99%E9%98%B2%E6%8A%96%E3%80%81%E8%8A%82%E6%B5%81"><span class="toc-number">1.0.3.</span> <span class="toc-text">三、手写防抖、节流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%89%8B%E5%86%99%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-number">1.0.4.</span> <span class="toc-text">四、手写深拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%89%8B%E5%86%99Promise"><span class="toc-number">1.0.5.</span> <span class="toc-text">五、手写Promise</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E4%BA%8B%E4%BB%B6%E8%AE%A2%E9%98%85-%E5%8F%91%E5%B8%83%EF%BC%88Event-Emitter%EF%BC%89%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.0.6.</span> <span class="toc-text">六、实现一个简单的事件订阅&#x2F;发布（Event Emitter）模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.0.7.</span> <span class="toc-text">七、实现一个简单的单例模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%8F%91%E5%B8%83-%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F%EF%BC%88Pub-Sub%EF%BC%89"><span class="toc-number">1.0.8.</span> <span class="toc-text">八、实现一个发布&#x2F;订阅模式（Pub&#x2F;Sub）</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/18/%E5%89%AA%E8%B4%B4%E6%9D%BF%E6%93%8D%E4%BD%9C/" title="无题">无题</a><time datetime="2024-03-18T14:18:03.036Z" title="发表于 2024-03-18 22:18:03">2024-03-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/18/%E9%94%99%E8%AF%AF%E6%8D%95%E8%8E%B7/" title="无题">无题</a><time datetime="2024-03-18T14:18:03.034Z" title="发表于 2024-03-18 22:18:03">2024-03-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/18/webpack/" title="无题">无题</a><time datetime="2024-03-18T14:18:03.023Z" title="发表于 2024-03-18 22:18:03">2024-03-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/18/%E6%89%8B%E5%86%99%E7%B1%BB%E9%9D%A2%E8%AF%95%E9%A2%98/" title="无题">无题</a><time datetime="2024-03-18T14:18:03.020Z" title="发表于 2024-03-18 22:18:03">2024-03-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/18/Vue%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6/" title="无题">无题</a><time datetime="2024-03-18T14:17:32.666Z" title="发表于 2024-03-18 22:17:32">2024-03-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Lei Wang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
